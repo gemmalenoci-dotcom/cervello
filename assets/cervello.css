@@ -166,3 +166,56 @@
   .scheda-g{grid-template-columns:repeat(2,1fr)}
   a{text-decoration:none}
 }
+
+/* riquadri cliccabili: si capisce che si apre */
+a.part{display:block;transition:transform .18s,border-color .18s,box-shadow .18s}
+a.part:hover{transform:translateY(-3px);border-color:var(--ink);box-shadow:var(--ombra)}
+.part .vai{display:inline-block;margin-top:12px;font-size:14.5px;font-weight:800;color:var(--fucsia)}
+a.part:hover .vai{text-decoration:underline;text-underline-offset:3px}
+
+/* pagina degli esercizi: indice, avanzamento, scarica */
+.progresso{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:22px;font-size:14.5px;font-weight:700;color:var(--ink)}
+.progresso b{color:var(--fucsia);font-size:1.15rem}
+.progresso .barra{flex:0 1 200px;height:10px;border-radius:10px;background:#fff;border:1.5px solid var(--line);overflow:hidden}
+.progresso .barra i{display:block;height:100%;width:0;background:var(--fucsia);border-radius:10px;transition:width .3s}
+.indice-et{margin-top:18px;font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--blu)}
+.indice{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+.indice a{display:inline-flex;align-items:center;gap:9px;background:#fff;border:2px solid var(--ink);border-radius:100px;padding:9px 16px 9px 10px;font-weight:800;font-size:15px;color:var(--ink);text-decoration:none;box-shadow:3px 4px 0 rgba(34,124,192,.3);transition:transform .15s}
+.indice a:hover{transform:translate(-1px,-2px);box-shadow:4px 6px 0 rgba(34,124,192,.35)}
+.indice a b{width:26px;height:26px;border-radius:50%;background:var(--fucsia);color:#fff;font-size:.9rem;display:flex;align-items:center;justify-content:center}
+.indice a:nth-child(even) b{background:var(--blu)}
+.btn-s.pieno{background:var(--ink);color:#fff}
+.btn-s.pieno:hover{background:#000;border-color:#000}
+.attrezzi.scarica{margin-top:18px}
+.avviso-salv{margin-top:12px;font-size:13.5px;color:var(--gray);max-width:46em;line-height:1.45}
+.avviso-salv b{color:var(--ink)}
+.finito{margin-top:30px;background:var(--azzurro);border-radius:20px;padding:clamp(20px,3vw,30px)}
+.finito h3{font-weight:900;font-size:1.35rem;letter-spacing:-.04em}
+.finito p{margin-top:6px}
+
+/* esercizio: intestazione chiara, spunta «fatto», foglio che invita a scrivere */
+.es .top{align-items:flex-start}
+.es .top .tt{flex:1;min-width:12em}
+.es .top .tt .et{display:block;font-size:12px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--blu)}
+.es:nth-of-type(even) .top .tt .et{color:var(--fucsia)}
+.es .top h2{margin-top:4px;min-width:0}
+.segna{display:flex;align-items:center;gap:9px;font-size:14px;font-weight:700;color:var(--ink);background:#fff;border:2px solid var(--ink);border-radius:100px;padding:8px 14px 8px 10px;cursor:pointer;white-space:nowrap}
+.segna:hover{background:var(--azzurro)}
+.es:has(.segna input:checked){border-color:var(--fucsia)}
+.es:has(.segna input:checked) .segna{background:var(--fucsia);border-color:var(--fucsia);color:#fff}
+.es:has(.segna input:checked) .segna .ck{background:#fff;border-color:#fff}
+.es:has(.segna input:checked) .segna .ck::before{border-color:var(--fucsia)}
+.tempo-es{margin-top:12px;font-size:13px;color:var(--gray)}
+.foglio{border:2px dashed rgba(34,124,192,.5);background:#fff}
+.foglio .come{font-size:13px;color:var(--blu);font-weight:700;margin:2px 80px 4px 0;line-height:1.35}
+.foglio .mano{top:10px}
+.foglio textarea::placeholder{color:#B8B1AE;font-style:italic}
+.foglio textarea:hover{background-color:rgba(34,124,192,.05)}
+.foglio .salvato{font-size:12.5px;color:var(--blu);font-weight:700;min-height:1.2em;margin-top:8px}
+
+/* academy: stesso box del team, con accento fucsia */
+.team.academy .box{border-color:rgba(205,36,113,.35)}
+.team.academy .ic{background:var(--rosa-bg);color:var(--fucsia)}
+
+@media print{.finito,.indice,.indice-et,.progresso,.avviso-salv,.segna,.academy,.tempo-es{display:none!important}.foglio .come{display:none}}
+@media(max-width:560px){.segna{white-space:normal}.foglio .come{margin-right:0}}

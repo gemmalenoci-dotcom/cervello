@@ -65,3 +65,52 @@
     });
   });
 })();
+
+(function(){
+  // avanzamento degli esercizi fatti
+  var chk=document.querySelectorAll('input[data-fatto]');
+  if(chk.length){
+    var agg=function(){var n=0;chk.forEach(function(c){if(c.checked)n++});var p=document.getElementById('prog'),b=document.getElementById('progbar');if(p)p.textContent=n;if(b)b.style.width=(n*20)+'%'};
+    chk.forEach(function(c){c.addEventListener('change',agg)});agg();
+  }
+  // «salvato» vicino al foglio
+  document.querySelectorAll('textarea[data-k]').forEach(function(t){
+    t.addEventListener('input',function(){
+      var s=t.closest('.foglio');s=s&&s.querySelector('.salvato');if(!s)return;
+      s.textContent='Salvato su questo dispositivo ✓';clearTimeout(t._s);t._s=setTimeout(function(){s.textContent=''},2200);
+    });
+  });
+  // scarica quello che hai scritto (testo semplice, si apre ovunque)
+  function oggi(){var d=new Date();return ('0'+d.getDate()).slice(-2)+'/'+('0'+(d.getMonth()+1)).slice(-2)+'/'+d.getFullYear()}
+  function scarica(nome,testo){
+    var blob=new Blob(['﻿'+testo],{type:'text/plain;charset=utf-8'});
+    var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=nome;document.body.appendChild(a);a.click();
+    setTimeout(function(){URL.revokeObjectURL(a.href);document.body.removeChild(a)},500);
+  }
+  document.querySelectorAll('[data-scarica]').forEach(function(b){
+    b.addEventListener('click',function(){
+      var t='USA IL CERVELLO PRIMA DELL\'AI\ncervello.unlikeacademy.it · Unlike Academy\nScaricato il '+oggi()+'\n\n';
+      var nome='usa-il-cervello-';
+      if(b.dataset.scarica==='scheda'){
+        nome+='scheda.txt';t+='LA MIA SCHEDA CERVELLO\n\n';
+        document.querySelectorAll('.scheda-g .bl').forEach(function(bl){
+          var h=bl.querySelector('h3'),x=bl.querySelector('textarea');if(!h||!x)return;
+          t+=h.textContent.trim().toUpperCase()+'\n'+(x.value.trim()||'[da compilare]')+'\n\n';
+        });
+      }else{
+        nome+='esercizi.txt';t+='I MIEI ESERCIZI\n\n';
+        document.querySelectorAll('.es').forEach(function(es){
+          var h=es.querySelector('h2'),ck=es.querySelector('input[data-fatto]');
+          t+='ESERCIZIO '+es.id.replace('e','')+' · '+h.textContent.trim()+(ck&&ck.checked?'  [fatto]':'')+'\n';
+          es.querySelectorAll('.foglio label.f').forEach(function(l){
+            var x=document.getElementById(l.getAttribute('for'));
+            t+='\n'+l.textContent.trim()+'\n'+((x&&x.value.trim())||'[da compilare]')+'\n';
+          });
+          t+='\n----------------------------------------\n\n';
+        });
+      }
+      scarica(nome,t);
+      var o=b.textContent;b.textContent='Scaricato ✓';setTimeout(function(){b.textContent=o},1800);
+    });
+  });
+})();
