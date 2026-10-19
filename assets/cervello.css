@@ -219,3 +219,10 @@ a.part:hover .vai{text-decoration:underline;text-underline-offset:3px}
 
 @media print{.finito,.indice,.indice-et,.progresso,.avviso-salv,.segna,.academy,.tempo-es{display:none!important}.foglio .come{display:none}}
 @media(max-width:560px){.segna{white-space:normal}.foglio .come{margin-right:0}}
+
+/* Login di Circle in alto a destra (19/10/2026) */
+.hd .dx{display:flex;align-items:center;gap:14px}
+.hd .login{font-size:14px;font-weight:800;color:var(--ink);text-decoration:none;border:2px solid var(--ink);border-radius:100px;padding:7px 16px;line-height:1.1;white-space:nowrap;transition:background .15s,color .15s}
+.hd .login:hover{background:var(--ink);color:#fff}
+@media(max-width:640px){.hd .dx{gap:10px}.hd .dx .back{display:none}.hd .login{padding:6px 13px;font-size:13.5px}}
+@media(max-width:480px){.hd .dx .acc{display:none}}
