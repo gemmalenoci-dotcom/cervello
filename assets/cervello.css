@@ -226,3 +226,24 @@ a.part:hover .vai{text-decoration:underline;text-underline-offset:3px}
 .hd .login:hover{background:var(--ink);color:#fff}
 @media(max-width:640px){.hd .dx{gap:10px}.hd .dx .back{display:none}.hd .login{padding:6px 13px;font-size:13.5px}}
 @media(max-width:480px){.hd .dx .acc{display:none}}
+
+/* Kit di riconoscimento della risorsa (19/10/2026) */
+
+.rigatop{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.timbro{font-family:'Gochi Hand',cursive;font-size:1.3rem;line-height:1;color:var(--fucsia);rotate:-4deg;border:2.5px solid var(--fucsia);border-radius:10px;padding:4px 12px 2px;white-space:nowrap;display:inline-block}
+.kit{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:22px}
+.kit .cap{font-family:'Gochi Hand',cursive;font-size:1.2rem;line-height:1.1;color:var(--fucsia);rotate:-2deg;margin-left:6px}
+.kt{position:relative;width:54px;height:54px;border-radius:15px;background:#fff;border:2px solid var(--fucsia);box-shadow:3px 4px 0 var(--fucsia);display:flex;align-items:center;justify-content:center;color:var(--fucsia);flex:none}
+.kt.grande{width:68px;height:68px;border-radius:18px}
+.kt img{width:30px;height:30px;object-fit:contain;display:block}
+.kt.grande img{width:38px;height:38px}
+.kt svg.ic{width:28px;height:28px}
+.kt.grande svg.ic{width:36px;height:36px}
+.kt.barrato{box-shadow:none;border-color:var(--line,#E4E0D9)}
+.kt.barrato img,.kt.barrato svg.ic{filter:grayscale(1);opacity:.45}
+.kt svg.x{position:absolute;left:6px;top:6px;width:calc(100% - 12px);height:calc(100% - 12px);color:var(--fucsia)}
+.voto87{display:inline-flex;align-items:baseline;gap:2px;border:3px solid var(--fucsia);border-radius:100px;padding:6px 18px;background:#fff;color:var(--fucsia);font-weight:700}
+.voto87 b{font-size:2rem;letter-spacing:-.05em;font-weight:900;color:var(--fucsia)}
+.logo-in{width:20px;height:20px;vertical-align:-4px;margin-right:6px;object-fit:contain;display:inline-block}
+.marchi{font-size:12.5px;color:var(--gray,#665E61);max-width:46em;margin:10px auto 0;line-height:1.45}
+@media(max-width:640px){.kt{width:48px;height:48px}.kt.grande{width:60px;height:60px}.kit{gap:8px}}
