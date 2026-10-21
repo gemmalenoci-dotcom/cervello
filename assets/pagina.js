@@ -114,3 +114,12 @@
     });
   });
 })();
+
+/* pulsante «Vai agli esercizi»: nella home compare solo dopo aver scrollato (in alto c'è già quello grande) */
+(function(){
+  var v=document.querySelector('.vai-es');
+  if(!v||document.body.className)return;
+  v.style.display='none';
+  function chk(){v.style.display=(window.scrollY>650)?'':'none'}
+  window.addEventListener('scroll',chk,{passive:true});chk();
+})();
