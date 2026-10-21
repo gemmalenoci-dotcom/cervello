@@ -295,3 +295,8 @@ body.fai .scheda-g textarea{background-image:repeating-linear-gradient(transpare
 body.fai .autotest .rg>b i{background:var(--fucsia);color:#fff;border-radius:50%;width:22px;height:22px;display:inline-flex;align-items:center;justify-content:center;margin-right:8px}
 /* pagine da leggere: tutto resta blu */
 body.leggi .hero .kicker{background:var(--blu)}
+
+/* avviso sul salvataggio ben visibile (21/10/2026) */
+.salva-box{margin-top:18px;background:var(--rosa-bg);border:2px solid var(--fucsia);border-left-width:9px;border-radius:14px;padding:14px 18px;font-size:15.5px;line-height:1.5;color:var(--ink);max-width:46em}
+.salva-box b{color:var(--ink);font-weight:800}
+@media print{.salva-box{display:none!important}}
