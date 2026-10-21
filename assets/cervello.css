@@ -300,3 +300,17 @@ body.leggi .hero .kicker{background:var(--blu)}
 .salva-box{margin-top:18px;background:var(--rosa-bg);border:2px solid var(--fucsia);border-left-width:9px;border-radius:14px;padding:14px 18px;font-size:15.5px;line-height:1.5;color:var(--ink);max-width:46em}
 .salva-box b{color:var(--ink);font-weight:800}
 @media print{.salva-box{display:none!important}}
+
+/* ACADEMY a sinistra e STRATEGO a destra su computer; uno sotto l'altro su telefono e tablet (21/10/2026) */
+.duo-sec{padding:clamp(40px,5vw,64px) 0}
+.duo{display:grid;grid-template-columns:1fr;gap:22px}
+.duo .team .box{grid-template-columns:1fr;gap:22px;align-items:start;height:100%}
+.duo .team{height:100%}
+.duo .team h2.sh{font-size:clamp(1.7rem,3vw,2.3rem)}
+.duo .stbanner{grid-template-columns:1fr;height:100%;align-content:start}
+.duo .stbanner .mago{position:absolute;right:20px;bottom:16px;width:110px}
+.duo .stbanner p.def{font-size:1.08rem;color:#fff;margin-top:16px}
+.duo .stbanner p.def b{font-size:1.12em}
+.duo .stbanner .wm{width:150px}
+@media(min-width:1040px){.duo{grid-template-columns:1fr 1fr;align-items:stretch}}
+@media(max-width:760px){.duo .stbanner .mago{position:static;display:block;width:100px;margin:10px 0 0 auto}}
