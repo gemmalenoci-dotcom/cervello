@@ -3,6 +3,8 @@
   var CHIAVE='cervello-mail-ok';
   var ENDPOINT='https://assets.mailerlite.com/jsonp/2697895/forms/202312355239954096/subscribe';
   var PRIVACY='https://www.iubenda.com/privacy-policy/15204920';
+  // 13/11 (Gemma): chi arriva dalla pagina della live o dalla sua mail di conferma ha già lasciato la mail, quindi niente modulo
+  try{if(new URLSearchParams(location.search).get('da')==='live'){try{localStorage.setItem(CHIAVE,'1')}catch(x){}return}}catch(e){}
   try{if(localStorage.getItem(CHIAVE)==='1')return}catch(e){}
 
   var css=document.createElement('style');
